@@ -2,6 +2,7 @@ micronaut:
     application:
         name: micronaut_rest
     server:
+        port: 8081
         cors: 
             enabled: true
 
