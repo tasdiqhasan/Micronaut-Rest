@@ -4,9 +4,11 @@ import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
+import io.micronaut.validation.Validated;
 
 import java.util.List;
 
+@Validated
 @Controller("/mahasiswa")
 public class MahasiswaController {
 
@@ -28,9 +30,14 @@ public class MahasiswaController {
                 .orElse(null); 
     }
 
-
     @Post("/")
     public Mahasiswa create(@Body Mahasiswa mahasiswa) {
+
         return mahasiswaRepository.save(mahasiswa);
+    }
+
+    @Post("/{id}") 
+    public Mahasiswa update(@Body Mahasiswa mahasiswa) {
+        return mahasiswaRepository.update(mahasiswa); 
     }
 }

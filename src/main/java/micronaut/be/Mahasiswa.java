@@ -3,6 +3,7 @@ package micronaut.be;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Mahasiswa {
@@ -11,8 +12,11 @@ public class Mahasiswa {
     @GeneratedValue
     private Long id;
 
+    @NotNull(message = "Nama harus diisi.")
     private String nama;
+    @NotNull(message = "NIM harus diisi.")
     private String nim;
+    @NotNull(message = "Angkatan harus diisi.")
     private Integer angkatan;
     private String alamat;
     private String jenis_kelamin;
