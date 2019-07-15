@@ -21,10 +21,16 @@ public class MahasiswaController {
         return mahasiswaRepository.findAll();
     }
 
+    @Get("/{id}") 
+    public Mahasiswa show(Long id) {
+        return mahasiswaRepository
+                .findById(id)
+                .orElse(null); 
+    }
+
+
     @Post("/")
     public Mahasiswa create(@Body Mahasiswa mahasiswa) {
         return mahasiswaRepository.save(mahasiswa);
     }
-
-
 }
