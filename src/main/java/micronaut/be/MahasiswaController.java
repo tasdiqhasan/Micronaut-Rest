@@ -36,7 +36,7 @@ public class MahasiswaController {
         return mahasiswaRepository.save(mahasiswa);
     }
 
-    @Post("/{id}") 
+    @Post("/edit/{id}") 
     public Mahasiswa update(@Body Mahasiswa mahasiswa) {
         return mahasiswaRepository.update(mahasiswa); 
     }
