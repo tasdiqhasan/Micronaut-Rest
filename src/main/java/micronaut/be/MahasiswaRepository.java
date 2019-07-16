@@ -9,4 +9,5 @@ public interface MahasiswaRepository {
     Mahasiswa update(@NotNull Mahasiswa mahasiswa);
     List<Mahasiswa> findAll();
     Optional<Mahasiswa> findById(@NotNull Long id);
+    void deleteById(@NotNull Long id);
 }

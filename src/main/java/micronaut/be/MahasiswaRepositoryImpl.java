@@ -46,4 +46,10 @@ public class MahasiswaRepositoryImpl implements MahasiswaRepository{
     public Optional<Mahasiswa> findById(@NotNull Long id) {
         return Optional.ofNullable(entityManager.find(Mahasiswa.class, id));
     }
+
+    @Override
+    @Transactional
+    public void deleteById(@NotNull Long id) {
+        findById(id).ifPresent(mahasiswa -> entityManager.remove(mahasiswa));
+    }
 }
